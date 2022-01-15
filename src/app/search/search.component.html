@@ -1,0 +1,16 @@
+<div class="input-group flex-nowrap mb-3">
+    <span class="input-group-text" id="addon-wrapping" (click)="search()">
+        <div class="spinner-border spinner-border-sm" role="status" [hidden]="!isLoading">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <i class="fa fa-search" [hidden]="isLoading"></i>
+    </span>
+    <input type="text" class="form-control" placeholder="Buscar..." aria-label="search"
+        aria-describedby="addon-wrapping" [(ngModel)]="query" (keydown.enter)="search()" [disabled]="isLoading">
+</div>
+<div class="container">
+    <div *ngIf="result" class="row">
+        <app-gif *ngFor="let data of result.data" [data]="data" class="col-sm-12 col-md-6"></app-gif>
+    </div>
+    
+</div>

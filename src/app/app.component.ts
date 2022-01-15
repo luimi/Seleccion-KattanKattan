@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Seleccion-kattankattan';
+  @ViewChild('search') searchChild! : SearchComponent
+  onHistorySelected(query: string){
+    this.searchChild.onHistorySearch(query);
+  }
 }

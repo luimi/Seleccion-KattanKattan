@@ -1,0 +1,12 @@
+<h3>Historial</h3>
+<div class="d-md-none mb-3">
+    <select class="form-select" aria-label="history" [ngModel]="selected" (ngModelChange)="onSelectSelected($event)">
+        <option value="">Selecciona un registro...</option>
+        <option *ngFor="let query of this.historyCtrl.list" [value]="query">{{query}}</option>
+      </select>
+</div>
+<div class="d-none d-md-block">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let query of this.historyCtrl.list" (click)="onSelected(query)">{{query}}</li>
+      </ul>
+</div>
